@@ -14,6 +14,7 @@ EMAIL_ADDRESS = config.EMAIL_ADDRESS
 EMAIL_PW = config.EMAIL_PW
 
 CALC_INSTRUCTION = "Enter your calculations in the following format: [term] [operator] [term]"
+EXAMPLE_QUERY = "e.g. 1 + 2"
 INPUT_ERROR = "Check if all your terms are numbers!"
 OPERATION_ERROR = "Make sure your operator is one of the following: "
 VALID_OPERATIONS = ['+', '-', '*', '/', '^', '%']
@@ -33,6 +34,7 @@ class Calculator:
         """)
 
         print(CALC_INSTRUCTION)
+        print(EXAMPLE_QUERY)
 
     # checks if query is valid, then passes query onto another function
     def parse_query(self):
