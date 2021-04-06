@@ -21,6 +21,8 @@ class MainApplication(tk.Frame):
         input_frame.pack(side=tk.TOP)
 
         self.text_input = tk.StringVar()
+        # callback allows user to type equation directly into textbox
+        self.text_input.trace_add("write", self.callback)
         txtDisplay = tk.Entry(input_frame, font = ('arial',20,'bold'), textvariable = self.text_input, bd = 10, insertwidth = 4, bg = "powder blue", justify = 'right')
         txtDisplay.grid(row = 0, column = 0)
         txtDisplay.pack(ipady = 10)
@@ -60,7 +62,12 @@ class MainApplication(tk.Frame):
         btn_dec = tk.Button(btn_frame, text = ".", fg = "black", width = 10, height = 3, bd = 2, relief = "ridge", bg = "#eee", cursor = "hand2", command = lambda: self.btn_click(".")).grid(row = 4, column = 1)
         equals_btn = tk.Button(btn_frame, text = "=", fg = "black", width = 22, height = 3, bd = 2, relief = "solid", bg = "#eee", cursor = "hand2", command = lambda: self.calculate_btn()).grid(row = 4, column = 2, columnspan = 2)
 
-
+    # allows user to bypass buttons and just type equation
+    # into text box
+    def callback(self, var, index, mode):
+        global query
+        # print(self.text_input.get())
+        query = self.text_input.get()
 
     def btn_click(self, item):
         global query
