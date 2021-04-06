@@ -1,5 +1,4 @@
 import tkinter as tk
-import txt_based_calc as txtc
 
 import sys
 
@@ -10,7 +9,7 @@ query = ""
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         # initialise Calculator class from txt_based_calc.py
-        self.calc = txtc.Calculator()
+        self.calc = Calculator()
 
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
@@ -101,7 +100,36 @@ def calc_init():
     calc.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")
     # unable to resize window hehe xD
     calc.resizable(0, 0)
-    calc.title("Calculator")
+    calc.title("Wolfram Beta")
 
     MainApplication(calc).grid()
     calc.mainloop()
+
+CALC_INSTRUCTION = "Enter your calculations in the following format: [term] [operator] [term]\nType 'quit' to exit"
+EXAMPLE_QUERY = "e.g. 1 + 2"
+INPUT_ERROR = "Check if all your terms are numbers!"
+OPERATION_ERROR = "Make sure your operator is one of the following: "
+VALID_OPERATIONS = ['+', '-', '*', '/', '^', '%']
+
+# TODO: consider allowing brackets o_o
+class Calculator:
+    def __init__(self):
+        # self.result = 0
+        # using https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20 to generate the ASCII art
+        print(r"""
+ __    __      _  __                         ___      _        
+/ / /\ \ \___ | |/ _|_ __ __ _ _ __ ___     / __\ ___| |_ __ _ 
+\ \/  \/ / _ \| | |_| '__/ _` | '_ ` _ \   /__\/// _ \ __/ _` |
+ \  /\  / (_) | |  _| | | (_| | | | | | | / \/  \  __/ || (_| |
+  \/  \/ \___/|_|_| |_|  \__,_|_| |_| |_| \_____/\___|\__\__,_|
+                                                               
+        """)
+
+#         print(CALC_INSTRUCTION)
+#         print(EXAMPLE_QUERY)
+        #print("hi...")
+
+    def calculate(self, q):
+        # using python inbuilt eval function to evaluate the query
+        result = str(eval(q))
+        return result

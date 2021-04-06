@@ -7,10 +7,9 @@ from datetime import datetime
 
 # includes email address and pw of my throwaway account
 import config
-import helper
-
+import util.helper
 # import calculator GUI
-import calc
+import util.calc as calc
 
 # global parameters
 # seconds before email is sent (modify to your liking)
