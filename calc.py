@@ -98,7 +98,8 @@ class MainApplication(tk.Frame):
             # reset query
             query = result
         
-if __name__ == "__main__":
+# if __name__ == "__main__":
+def calc_init():
     calc = tk.Tk()
     calc.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")
     # unable to resize window hehe xD

