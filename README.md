@@ -8,8 +8,8 @@ Aiming to get a basic, and very obvious keylogger created before I try to obscur
 Obscured under a console-based calculator app, and converted into an .exe to use on any PC
 
 ### Final Goal(s)
-Obscured under a working calculator GUI. [DONE]
-Able to bypass Windows defender [???]
+* Obscured under a working calculator GUI. [DONE]
+* Able to bypass Windows defender [???]
 
 ### Libraries used:
 * keyboard: logging keystrokes
