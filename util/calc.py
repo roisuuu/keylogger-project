@@ -101,6 +101,7 @@ def calc_init():
     # unable to resize window hehe xD
     calc.resizable(0, 0)
     calc.title("Wolfram Beta")
+    calc.iconbitmap('util/logo_pls_dont_sue.ico')
 
     MainApplication(calc).grid()
     calc.mainloop()
